@@ -1,7 +1,7 @@
 version: '3.4'
 services:
-  alfresco-share:
-    image: alfresco-share-alfresco:development
+  igag-alfresco-share:
+    image: alfresco-share-igag-alfresco:development
     build:
       dockerfile: ./Dockerfile
       context: ../../../target
@@ -13,15 +13,15 @@ services:
       - "${share.port}:8080"
       - "${share.debug.port}:8888"
 # Optional
-  alfresco-acs:
+  igag-alfresco-acs:
     image: ${docker.acs.image}:${alfresco.platform.version}
     environment:
       JAVA_OPTS: "
                 -Ddb.driver=org.postgresql.Driver
                 -Ddb.username=alfresco
                 -Ddb.password=alfresco
-                -Ddb.url=jdbc:postgresql://alfresco-postgres:5432/alfresco
-                -Dsolr.host=alfresco-ass
+                -Ddb.url=jdbc:postgresql://igag-alfresco-postgres:5432/alfresco
+                -Dsolr.host=igag-alfresco-ass
                 -Dsolr.port=8983
                 -Dsolr.secureComms=none
                 -Dsolr.base.url=/solr
@@ -35,10 +35,10 @@ services:
     ports:
       - "${acs.port}:8080"
     volumes:
-      - alfresco-acs-volume:/usr/local/tomcat/alf_data
+      - igag-alfresco-acs-volume:/usr/local/tomcat/alf_data
     depends_on:
-      - alfresco-postgres
-  alfresco-postgres:
+      - igag-alfresco-postgres
+  igag-alfresco-postgres:
     image: postgres:9.6
     environment:
       POSTGRES_DB: alfresco
@@ -48,24 +48,24 @@ services:
     ports:
       - "${postgres.port}:5432"
     volumes:
-      - alfresco-db-volume:/var/lib/postgresql/data
-  alfresco-ass:
+      - igag-alfresco-db-volume:/var/lib/postgresql/data
+  igag-alfresco-ass:
     image: alfresco/alfresco-search-services:1.2.0
     environment:
-      SOLR_ALFRESCO_HOST: alfresco-acs
+      SOLR_ALFRESCO_HOST: igag-alfresco-acs
       SOLR_ALFRESCO_PORT: 8080
-      SOLR_SOLR_HOST: alfresco-ass
+      SOLR_SOLR_HOST: igag-alfresco-ass
       SOLR_SOLR_PORT: 8983
       SOLR_CREATE_ALFRESCO_DEFAULTS: alfresco,archive
     ports:
       - "8983:8983"
     volumes:
-      - alfresco-ass-volume:/opt/alfresco-search-services/contentstore
-      - alfresco-ass-volume:/opt/alfresco-search-services/data
+      - igag-alfresco-ass-volume:/opt/alfresco-search-services/contentstore
+      - igag-alfresco-ass-volume:/opt/alfresco-search-services/data
 volumes:
-  alfresco-acs-volume:
+  igag-alfresco-acs-volume:
     external: true
-  alfresco-db-volume:
+  igag-alfresco-db-volume:
     external: true
-  alfresco-ass-volume:
+  igag-alfresco-ass-volume:
     external: true

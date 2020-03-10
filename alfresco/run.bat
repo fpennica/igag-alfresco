@@ -51,13 +51,13 @@ echo "Usage: %0 {build_start|start|stop|purge|tail|reload_share}"
 EXIT /B %ERRORLEVEL%
 
 :start
-    docker volume create alfresco-acs-volume
-    docker volume create alfresco-db-volume
-    docker volume create alfresco-ass-volume
+    docker volume create igag-alfresco-acs-volume
+    docker volume create igag-alfresco-db-volume
+    docker volume create igag-alfresco-ass-volume
     docker-compose -f "%COMPOSE_FILE_PATH%" up --build -d
 EXIT /B 0
 :start_share
-    docker-compose -f "%COMPOSE_FILE_PATH%" up --build -d alfresco-share
+    docker-compose -f "%COMPOSE_FILE_PATH%" up --build -d igag-alfresco-share
 EXIT /B 0
 :down
     if exist "%COMPOSE_FILE_PATH%" (
@@ -68,8 +68,8 @@ EXIT /B 0
 	call %MVN_EXEC% clean package
 EXIT /B 0
 :build_share
-    docker-compose -f "%COMPOSE_FILE_PATH%" kill alfresco-share
-    docker-compose -f "%COMPOSE_FILE_PATH%" rm -f alfresco-share
+    docker-compose -f "%COMPOSE_FILE_PATH%" kill igag-alfresco-share
+    docker-compose -f "%COMPOSE_FILE_PATH%" rm -f igag-alfresco-share
 	call %MVN_EXEC% clean package
 EXIT /B 0
 :tail
@@ -79,7 +79,7 @@ EXIT /B 0
     docker-compose -f "%COMPOSE_FILE_PATH%" logs --tail="all"
 EXIT /B 0
 :purge
-    docker volume rm -f alfresco-acs-volume
-    docker volume rm -f alfresco-db-volume
-    docker volume rm -f alfresco-ass-volume
+    docker volume rm -f igag-alfresco-acs-volume
+    docker volume rm -f igag-alfresco-db-volume
+    docker volume rm -f igag-alfresco-ass-volume
 EXIT /B 0

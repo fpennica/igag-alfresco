@@ -14,11 +14,11 @@
    -->
 
    <!-- Add module specific messages and labels -->
-   <bean id="it.cnr.igag.alfresco.resources"
+   <bean id="it.cnr.igag.igag-alfresco.resources"
          class="org.springframework.extensions.surf.util.ResourceBundleBootstrapComponent">
       <property name="resourceBundles">
          <list>
-            <value>alfresco.web-extension.messages.alfresco</value>
+            <value>alfresco.web-extension.messages.igag-alfresco</value>
          </list>
       </property>
    </bean>

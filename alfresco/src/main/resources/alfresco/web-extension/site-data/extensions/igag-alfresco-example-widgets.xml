@@ -1,7 +1,7 @@
 <extension>
   <modules>
     <module>
-      <id>alfresco - Example Aikau Widgets</id>
+      <id>igag-alfresco - Example Aikau Widgets</id>
       <version>1.0</version>
       <auto-deploy>true</auto-deploy>
       <configurations>
@@ -9,7 +9,7 @@
           <web-framework>
             <dojo-pages>
               <packages>
-                <package name="tutorials" location="resources/alfresco/js/tutorials"/>
+                <package name="tutorials" location="resources/igag-alfresco/js/tutorials"/>
               </packages>
             </dojo-pages>
           </web-framework>
