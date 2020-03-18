@@ -1,5 +1,10 @@
 /* Site-wide Styles */
 
+/* custom login background (is there a better way?) */
+body.UNKNOWN {
+    background-color: #cff3f6 !important;
+}
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -980,9 +985,9 @@ body.yui-skin-igagTheme .yuimenu .bd ul li.yuimenuitem-selected
    background-color: #eee;
 }
 
-body.yui-skin-igagTheme .yuimenu .bd ul li.yuimenuitem  a.yuimenuitemlabel:focus, 
+body.yui-skin-igagTheme .yuimenu .bd ul li.yuimenuitem  a.yuimenuitemlabel:focus,
 body.yui-skin-igagTheme .yuimenu .bd ul li.yuimenuitem  a.yuimenuitemlabel:hover,
-body.yui-skin-igagTheme .yuimenu .bd ul li.yuimenuitem-selected a.yuimenuitemlabel:focus, 
+body.yui-skin-igagTheme .yuimenu .bd ul li.yuimenuitem-selected a.yuimenuitemlabel:focus,
 body.yui-skin-igagTheme .yuimenu .bd ul li.yuimenuitem-selected a.yuimenuitemlabel:hover {
   color: #000;
 }
@@ -1475,7 +1480,7 @@ body.alfresco-guest
 {
    height: 54px;
    width: 320px;
-   background: transparent url(images/alfresco.svg) 50% 0 no-repeat;
+   background: transparent url(images/alfresco.png) 50% 0 no-repeat;
    background-size: 180px 58px;
 }
 
