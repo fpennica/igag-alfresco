@@ -25,5 +25,17 @@
             </customizations>
         </module>
 
+        <module>
+            <id>igagTheme Web Script Template for Head</id>
+            <version>1.0</version>
+            <auto-deploy>true</auto-deploy>
+            <customizations>
+                <customization>
+                    <targetPackageRoot>org.alfresco.components.head</targetPackageRoot>
+                    <sourcePackageRoot>it.cnr.igag.igag-alfresco.igagTheme.head.template</sourcePackageRoot>
+                </customization>
+            </customizations>
+        </module>
+
     </modules>
 </extension>

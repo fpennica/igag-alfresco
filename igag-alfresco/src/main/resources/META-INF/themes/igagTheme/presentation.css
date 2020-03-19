@@ -2,8 +2,24 @@
 
 /* custom login background (is there a better way?) */
 body.UNKNOWN {
-    background-color: #cff3f6 !important;
+    background: url(images/login_bg.jpg) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    z-index: -2;
 }
+
+/* body.UNKNOWN::after {
+    background-color: #e6781e;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+} */
 
 @font-face {
   font-family: 'Open Sans';
@@ -1478,10 +1494,12 @@ body.alfresco-guest
 
 .theme-company-logo
 {
-   height: 54px;
+   /* height: 54px; */
+   height: 87px;
    width: 320px;
    background: transparent url(images/alfresco.png) 50% 0 no-repeat;
-   background-size: 180px 58px;
+   /* background-size: 180px 58px; */
+    background-size: 200px 87px;
 }
 
 .theme-flow-arrow
